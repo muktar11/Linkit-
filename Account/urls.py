@@ -1,0 +1,211 @@
+from django.urls import path
+from .views import(
+<<<<<<< HEAD
+    RegisterStaffView,
+    MyTokenObtainPairView,
+    ChangePasswordView,
+    TokenRefreshViewCustom, 
+    CustomUserUpdateView,
+    CustomUserListExcludingParamView,
+    CustomUserDeleteView,
+    CreateCoinView,
+    DeleteCoinView,
+    GetAllCoinsView,
+    IncreaseCoinsView,
+    WatchVideoEarnCoinsView,
+    RedeemCoinView,
+    UnprocessedRequestsView,
+    ProcessedRequestsView,
+    ProcessRequestView,
+    CreateOrUpdateCoinView,
+    CreateCashWithdrawView,
+    UserCashWithdrawalsView,
+    CreateOrUpdateExchangeView, 
+    DeleteExchangeView, 
+    GetAllCoinsView,
+    RetrieveYoutubeVideoView,
+    CreateOrUpdateExchangeView,
+    DeleteExchangeView,    
+    GetAllExchangesView,
+    CreateMessageView,
+    GetAllMessagesView,
+    GetMessagesByUserIdView,
+    GetAllMessagesSentToUserView,
+    CreateYoutubeVideoView,
+    DeleteYoutubeVideoView,
+    GetAllYoutubeVideosView,
+    DailyRewardView,
+    DailyComboView,
+    DailyCipherView,
+    create_message,
+    get_all_coin,
+    get_all_exchange,
+    get_all_urls,
+    get_all_users,
+    get_message_for_user,
+    get_message_for_all,
+    
+    create_cashwithdraw,
+    get_cashwithdraw_for_user,
+    get_cashwithdraw_for_all,
+
+    CreateCashRateView, RetrieveCashRateView,
+    RetrieveAllCashRateView, UpdateCashRateView,
+
+    RetirevePurcahseCoinView, CreateDailyComboView, 
+    DailyComboClaimView,
+    CreateOnlineShopView, RetrieveAllOnlineShopView, RetrieveOnlineShopView, UpdateOnlineShopView,
+    CreatePurchaseView, GetPurchaseByUserView, UpdatePurchaseView,
+    CreateWireCoinView, RetrieveCashRateView,
+    CreatePurchaseCoinView, RetrieveWireCoinView,  CustomerPurcahseRetrieve,
+    get_daily_combo_for_all, 
+=======
+     RegisterStaffView, MyTokenObtainPairView,
+     ChangePasswordView, TwoFactorAuthView,
+     PublishListCreateView, PublishDetailView, 
+     PhotoListCreateView, VideoListCreateView,DeleteAccount,
+     InvestListCreateView, InvestDetailView,
+     SettingsListCreateView, SettingsDetailView, 
+     ProfileDetailView, UserFeedView, 
+     LikePublishView, RatePublishView, get_user_profile,
+     ProfileFollowersFollowingView,
+     LikeInvestView, RateInvestView,
+    EnableNotificationsView,get_profile,
+    FollowUnfollowView, get_user,
+    FollowUnfollowRetrieveView,FollowersFollowingRetrieveView,
+    MakeProfilePublicView, ProfileSearchView,
+    ShowOnlineStatusView, UserActivityView,
+    EnableTwoFactorAuthenticationView, SuggestedUsersView,
+    PublishInvestSearchView, TokenRefreshViewCustom,
+    EditCustomUserView, FollowersFollowingView,
+    CommentPublishView, CommentInvestView,
+    CreateCommentReplyView,
+>>>>>>> 2b11a5b (first commit)
+)
+from . import views
+urlpatterns = [
+    path('token/', MyTokenObtainPairView.as_view(), name='auth-login'),
+    path('token/refresh/', TokenRefreshViewCustom.as_view(), name='token_refresh'),
+    path('users/exclude/<int:user_id>/', CustomUserListExcludingParamView.as_view(), name='exclude-user'),
+    path('register/', RegisterStaffView.as_view(), name='auth-register'),
+<<<<<<< HEAD
+    path('user/update/<int:id>/', CustomUserUpdateView.as_view(), name='user-update'),
+    path('user/delete/', CustomUserDeleteView.as_view(), name='user-delete'),
+    path('increase-coins/', IncreaseCoinsView.as_view(), name='increase-coins'),
+    path('watch-video-earn-coins/', WatchVideoEarnCoinsView.as_view(), name='watch-video-earn-coins'),
+    path('redeem-coin/', RedeemCoinView.as_view(), name='redeem-coin'),
+    path('requests/unprocessed/', UnprocessedRequestsView.as_view(), name='unprocessed-requests'),
+    path('requests/processed/', ProcessedRequestsView.as_view(), name='processed-requests'),
+    path('requests/process/<int:pk>/', ProcessRequestView.as_view(), name='process-request'),
+    path('requests/create/', CreateCashWithdrawView.as_view(), name='create-request'),
+    path('requests/user/', UserCashWithdrawalsView.as_view(), name='user-requests'),
+    path('exchange/', CreateOrUpdateExchangeView.as_view(), name='create-or-update-exchange'),
+    path('exchange/<int:pk>/', DeleteExchangeView.as_view(), name='delete-exchange'),
+    path('exchanges/', GetAllExchangesView.as_view(), name='get-all-exchanges'),
+    path('messages/', CreateMessageView.as_view(), name='create-message'),
+    path('messages/all/', GetAllMessagesView.as_view(), name='get-all-messages'),
+
+    path('youtube-urls/', get_all_urls, name='get_all_urls'),
+    path('users/', get_all_users, name='get_all_users'),
+    path('get/all/exchnage/', get_all_exchange, name='get-all-exchange'),
+    path('get/all/coin/', get_all_coin, name='get-all-exchange'),
+=======
+    path('user/<int:user_id>/change-password/', ChangePasswordView.as_view(), name='change-password'),
+    path('delete_account/', DeleteAccount.as_view(), name='delete_account'),
+    path('edit-profile/<int:user_id>/', EditCustomUserView.as_view(), name='edit-profile'), 
+    path('get-user/<int:pk>/', get_user, name='edit-profile'),
+    path('profile/<int:user_id>/followers-following/', FollowersFollowingView.as_view(), name='followers-following'),
+    path('profile/<int:user_id>/followers-following/', FollowersFollowingView.as_view(), name='followers-following'),
+    path('comments/<int:parent_comment_id>/reply/', CreateCommentReplyView.as_view(), name='create-comment-reply'),
+    path('profiles/<int:pk>/', get_profile, name='get-profile'),
+    path('user-profiles/<int:pk>/', get_user_profile, name='get-profile'),
+    #post
+    path('profile/<int:parent_id>/follows/<int:id>/', FollowUnfollowRetrieveView.as_view(), name='follow-unfollow'),
+    #get
+    path('profile/<int:user_id>/followers-following/', FollowersFollowingRetrieveView.as_view(), name='followers-following'),
+
+    path('user/<int:user_id>/profile/<int:profile_id>/follow/', FollowUnfollowView.as_view(), name='follow-unfollow'),
+    path('suggested-users/<int:user_id>/', SuggestedUsersView.as_view(), name='suggested-users'),
+    path('search-profiles/', ProfileSearchView.as_view(), name='search-profiles'),
+    path('search-publish-invest/', PublishInvestSearchView.as_view(), name='search-profiles'),
+    path('profile/<int:user_id>/followers-following/', ProfileFollowersFollowingView.as_view(), name='profile-followers-following'),
+
+    path('publish/', PublishListCreateView.as_view(), name='publish-list-create'),
+    path('user/activity/<int:pk>/', UserActivityView.as_view(), name='user-activity'),
+    path('publish/<int:pk>/', PublishDetailView.as_view(), name='publish-detail'),
+    path('publish/<int:publish_id>/photos/', PhotoListCreateView.as_view(), name='photo-list-create'),
+    path('publish/<int:publish_id>/videos/', VideoListCreateView.as_view(), name='video-list-create'),
+    path('invest/', InvestListCreateView.as_view(), name='publish-list-create'),
+    path('like/<int:id>/<int:pk>/', LikePublishView.as_view(), name='publish-like'),
+    path('rate/<int:id>/<int:pk>/', RatePublishView.as_view(), name='publish-rate'),
+    path('like-invest/<int:id>/<int:pk>/', LikeInvestView.as_view(), name='invest-like'),
+    path('rate-invest/<int:id>/<int:user_id>/', RateInvestView.as_view(), name='invest-rate'),
+    path('comment-publish/<int:id>/<int:pk>/', CommentPublishView.as_view(), name='invest-like'),
+    path('comment-invest/<int:id>/<int:pk>/', CommentInvestView.as_view(), name='invest-rate'),
+>>>>>>> 2b11a5b (first commit)
+    
+    path('messages/create/<int:user>/<int:receiver>/', views.create_message, name='create_message'),
+    path('messages/user/access/<int:id>/', views.get_message_for_user, name='create_message'),
+    path('messages/access/', views.get_message_for_all, name='create_message'),
+
+<<<<<<< HEAD
+
+    path('cashwithdraw/create/<int:user>/', views.create_cashwithdraw, name='create_message'),
+    path('cashwithdraw/user/access/<int:id>/', views.get_cashwithdraw_for_user, name='create_message'),
+    path('cashwithdraw/access/', views.get_cashwithdraw_for_all, name='create_message'),
+    path('withdrawals/<int:user_id>/', UserCashWithdrawalsView.as_view(), name='user-cash-withdrawals'),
+
+    path('cashrate/create/<int:user>/', CreateCashRateView.as_view(), name='create_cashrate'),
+    path('cashrate/user/access/<int:id>/', RetrieveCashRateView.as_view(), name='create_cashrate_access'),
+    path('cashrate/access/', RetrieveAllCashRateView.as_view(), name='create_cashrate_access'),
+    path('cashrate/<int:user_id>/', UpdateCashRateView.as_view(), name='user-cash-cashrate'),
+
+
+
+    path('daily-reward/<int:user_id>/', DailyRewardView.as_view(), name='daily-reward'),
+    path('daily-combo/<int:user_id>/', DailyComboView.as_view(), name='daily-combo'),
+    path('daily-cipher/<int:user_id>/', DailyCipherView.as_view(), name='daily-cipher'),
+    path('daily-combo/get/all', views.get_daily_combo_for_all, name='daily-combo'),
+    path('daily-combo-create', CreateDailyComboView.as_view(), name='create-daily-comb'),
+    path('daily-combo/claim/<int:user_id>/<int:combo_id>/', views.DailyComboClaimView.as_view(), name='daily-combo'),
+ 
+    path('messages/user/<int:user_id>/', GetMessagesByUserIdView.as_view(), name='get-messages-by-user-id'),
+    path('messages/sent-to/<int:user_id>/', GetAllMessagesSentToUserView.as_view(), name='get-messages-sent-to-user'),
+    path('youtube-video/', CreateYoutubeVideoView.as_view(), name='create-youtube-video'),
+    path('videos/<str:platform>/', RetrieveYoutubeVideoView.as_view(), name='retrieve_video_by_platform'),
+    path('youtube-video/<int:id>/', DeleteYoutubeVideoView.as_view(), name='delete-youtube-video'),
+    path('youtube-videos/', GetAllYoutubeVideosView.as_view(), name='get-all-youtube-videos'),
+    path('coin/', CreateCoinView.as_view(), name='create-coin'),
+    path('coin/<int:id>/', DeleteCoinView.as_view(), name='delete-coin'),
+    path('coins/', GetAllCoinsView.as_view(), name='get-all-coins'),
+
+    # OnlineShop Endpoints
+    path('shop/create/', CreateOnlineShopView.as_view(), name='create-shop'),
+    path('show/all/', RetrieveAllOnlineShopView.as_view(), name='online-shop'),
+    path('shop/<int:pk>/', RetrieveOnlineShopView.as_view(), name='retrieve-shop'),
+    path('shop/update/<int:pk>/', UpdateOnlineShopView.as_view(), name='update-shop'),
+
+    # Customer Purchase Endpoints
+    path('purchase/create/', CreatePurchaseView.as_view(), name='create-purchase'),
+    path('purchase/user/<int:user_id>/', GetPurchaseByUserView.as_view(), name='get-user-purchases'),
+    path('purchase/update/<int:pk>/', UpdatePurchaseView.as_view(), name='update-purchase'),
+    path('purchase/retrieve/<int:pk>/', CreatePurchaseCoinView.as_view(), name='update-purchase'),
+    path('purchase/orders/all',  CustomerPurcahseRetrieve.as_view(), name='CreatePurcahseCoinRetrieve'),
+    path('coin-purchase/retrieve/all/', RetirevePurcahseCoinView.as_view(), name='update-purchase'),
+
+
+     # Customer Purchase Endpoints
+    path('cash/rate/create/',  CreateCashRateView.as_view(), name='create-purchase'),
+    path('cash/rate/all/', RetrieveAllCashRateView.as_view(), name='get-user-purchases'),
+
+      # Customer Purchase Endpoints
+    path('wire/coin/create/<int:user_id>/', CreateWireCoinView.as_view(), name='create-purchase'),
+    path('wire/coin/get/', RetrieveWireCoinView.as_view(), name='get-user-purchases'),
+   
+=======
+    path('settings/enable-notifications/<int:pk>/', EnableNotificationsView.as_view(), name='enable-notifications'),
+    path('settings/make-profile-public/<int:pk>/', MakeProfilePublicView.as_view(), name='make_profile_public'),
+    path('settings/show-online-status/<int:pk>/', ShowOnlineStatusView.as_view(), name='show_online_status'),
+    path('settings/enable-two-factor-authentication/<int:pk>/', EnableTwoFactorAuthenticationView.as_view(), name='enable_two_factor_authentication'),
+>>>>>>> 2b11a5b (first commit)
+]
